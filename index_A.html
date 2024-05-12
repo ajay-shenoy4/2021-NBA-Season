@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homepage - Version A</title>
+  <style>
+    .donate-link {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Website! - Version A</h1>
+  <p>Explore the amazing work we do and discover how you can make a difference.</p>
+  <a href="browse.html">Browse Data</a>
+  <a href="donate.html">Donate</a>
+  <button onclick="subscribe()">Subscribe</button>
+  <h2>Dashboard</h2>
+  <img src="static/dashboard_1.svg" alt="Dashboard 1">
+  <img src="static/dashboard_2.svg" alt="Dashboard 2">
+  <img src="static/dashboard_3.svg" alt="Dashboard 3">
+  <img src="static/dashboard_4.svg" alt="Dashboard 4">
+  <img src="static/dashboard_5.svg" alt="Dashboard 5">
+  <img src="static/dashboard_6.svg" alt="Dashboard 6">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+    function subscribe() {
+      var email = prompt("What is your email?", "????");
+
+      $.post({
+        type: "POST",
+        url: "email",
+        data: email,
+        contentType: "application/text; charset=utf-8",
+        dataType: "json"
+      }).done(function(data) {
+        alert(data);
+      }).fail(function(data) {
+        alert("POST failed");
+      });
+    }
+  </script>
+</body>
+</html>
